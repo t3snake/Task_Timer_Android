@@ -1,7 +1,16 @@
 package com.t3snake.tasktimer
 
-sealed class Screen (val route: String) {
-    object RoutineScreen : Screen("routine_screen")
-    object TimerScreen : Screen("timer_screen")
-    object ConfigScreen : Screen("config_screen")
+import kotlinx.serialization.Serializable
+
+class Screen {
+    @Serializable
+    object Routines
+
+    @Serializable
+    data class Timer(val id: String)
+
+    @Serializable
+    data class Config(val id: String)
 }
+
+
